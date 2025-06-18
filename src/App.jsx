@@ -1,7 +1,7 @@
 import {Route,Routes} from 'react-router-dom';
 import Welcome from './components/Welcome';
 import Home from './components/Home';
-import Form from './components/Form';
+import Login from './components/Login';
 import AppLayout from './layout/AppLayout';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       {/* <Route path="/" element={<Home/>} />
       <Route path="/form" element={<Form/>} /> */}
       <Route path="/" element={<AppLayout><Home/></AppLayout>} />
-      <Route path="/login" element={<AppLayout><Form/></AppLayout>} />
+      <Route path="/login" element={<AppLayout><Login/></AppLayout>} />
     </Routes >
   );
 }
