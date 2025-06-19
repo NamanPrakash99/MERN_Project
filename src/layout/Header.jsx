@@ -61,7 +61,7 @@ const Header = () => {
         <div className="ezy__nav7 light">
             <Navbar expand="lg" className="flex-column py-3">
                 <Container>
-                    <Navbar.Brand href="#">MY APP</Navbar.Brand>
+                    <Navbar.Brand href="#">MYAPP</Navbar.Brand>
                     <Navbar.Toggle aria-controls="ezy__nav7-navbar-nav">
                         <span>
                             <span />

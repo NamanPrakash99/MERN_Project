@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Login = () => {
+const Login = ({updateUserDetails}) => {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -34,7 +34,10 @@ const Login = () => {
     e.preventDefault();
     if (validate()) {
       if (formData.username === 'admin' && formData.password === 'admin') {
-        setMessage('Valid Credentials');
+        updateUserDetails({
+          name:'Naman',
+          email:'naman2580@gmail.com'
+        });
       } else {
         setMessage('Invalid Credentails');
       }
