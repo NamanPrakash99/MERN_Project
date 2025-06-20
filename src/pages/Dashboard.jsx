@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-function Dashboard() {
+const Dashboard = ({ logout }) => {
   return (
-    <div className="container text-center">
-        <h1>User Dashboard Page</h1>
+    <div>
+      <h1>Welcome to Dashboard</h1>
+      <button onClick={logout}>Logout</button>
     </div>
   );
-}
+};
 
 export default Dashboard;

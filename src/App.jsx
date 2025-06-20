@@ -26,6 +26,19 @@ function App() {
     isUserLoggedIn();
   }, []);
 
+  const logout = async () => {
+    try {
+      await axios.post('http://localhost:5001/auth/logout', {}, {
+        withCredentials: true
+      });
+      updateUserDetails(null);
+      navigate('/login');
+    } catch (err) {
+      console.error("Logout failed", err);
+    }
+  };
+
+
   return (
     <Routes>
       <Route
@@ -56,12 +69,12 @@ function App() {
         path="/dashboard"
         element={
           userDetails ?
-            <Dashboard />
+            <Dashboard logout={logout} />
             :
             <Navigate to="/login" />
-
         }
       />
+
     </Routes>
   );
 }
