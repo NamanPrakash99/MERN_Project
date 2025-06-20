@@ -1,10 +1,12 @@
-import React, { useState } from 'react'; // ✅ <-- FIXED
+import React, { useState, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Welcome from './components/Welcome';
 import Home from './components/Home';
 import Login from './components/Login';
 import AppLayout from './layout/AppLayout';
 import Dashboard from './pages/Dashboard';
+import axios from 'axios';
+
 
 function App() {
   const [userDetails, setUserDetails] = useState(null);
@@ -12,6 +14,17 @@ function App() {
   const updateUserDetails = (updatedUserDetails) => {
     setUserDetails(updatedUserDetails);
   };
+
+  const isUserLoggedIn = async () => {
+    const response = await axios.post(' http://localhost:5001/auth/is-user-logged-in', {}, {
+      withCredentials: true
+    });
+    updateUserDetails(response.data.user);
+  };
+
+  useEffect(() => {
+    isUserLoggedIn();
+  }, []);
 
   return (
     <Routes>
@@ -52,5 +65,4 @@ function App() {
     </Routes>
   );
 }
-
 export default App;
