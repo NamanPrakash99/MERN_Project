@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Dashboard = ({ logout }) => {
+function Dashboard() {
   return (
-    <div>
-      <h1>Welcome to Dashboard</h1>
-      <button onClick={logout}>Logout</button>
+    <div className="container text-center">
+      <h1>User Dashboard Page</h1>
+      <Link to="/logout">Logout</Link>
     </div>
   );
-};
+}
 
 export default Dashboard;

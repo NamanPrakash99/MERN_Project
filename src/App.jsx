@@ -6,7 +6,8 @@ import Login from './components/Login';
 import AppLayout from './layout/AppLayout';
 import Dashboard from './pages/Dashboard';
 import axios from 'axios';
-
+import Error from './pages/Error';
+import Logout from './pages/Logout';
 
 function App() {
   const [userDetails, setUserDetails] = useState(null);
@@ -74,6 +75,13 @@ function App() {
             <Navigate to="/login" />
         }
       />
+      <Route path="/logout" element={userDetails ?
+      <Logout updateUserDetails={updateUserDetails} /> :
+      <Navigate to="/login" />} />
+
+      <Route path="/error" element={userDetails ?
+      <Error /> :
+      <AppLayout><Error /></AppLayout>} />
 
     </Routes>
   );
